@@ -1,8 +1,8 @@
 // dependencies
 const express = require('express');
 const mongoose = require('mongoose');
-const bodyparser = require('body-parser');
-
+const bodyParser = require('body-parser');
+// const bcrypt = require('bcryptjs');
 
 // routes
 const profile = require('./routes/api/profile');
@@ -10,6 +10,12 @@ const users = require('./routes/api/users');
 const posts = require('./routes/api/posts');
 
 const app = express();
+
+// Body parser middleware
+app.use(bodyParser.urlencoded({
+    extended: false
+}));
+app.use(bodyParser.json());
 
 // MongoDB Config
 const db = require('./config/keys').mongoURI;
