@@ -232,7 +232,6 @@ router.delete(
                 const removeIndex = post.comments
                     .map(item => item._id.toString())
                     .indexOf(req.params.comment_id);
-
                 // Splice comment out of array
                 post.comments.splice(removeIndex, 1);
                 // save comment to post
