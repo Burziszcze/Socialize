@@ -30,8 +30,8 @@ router.get('/', passport.authenticate('jwt', {
     // errors
     const errors = {};
     Profile.findOne({
-            user: req.user.id
-        })
+        user: req.user.id
+    })
         .populate('user', ['name', 'avatar'])
         .then(profile => {
             if (!profile) {
@@ -72,8 +72,8 @@ router.get('/handle/:handle', (req, res) => {
     const errors = {};
 
     Profile.findOne({
-            handle: req.params.handle
-        })
+        handle: req.params.handle
+    })
         .populate('user', ['name', 'avatar'])
         .then(profile => {
             if (!profile) {
@@ -93,8 +93,8 @@ router.get('/user/:user_id', (req, res) => {
     const errors = {};
 
     Profile.findOne({
-            user: req.params.user_id
-        })
+        user: req.params.user_id
+    })
         .populate('user', ['name', 'avatar'])
         .then(profile => {
             if (!profile) {
@@ -150,14 +150,14 @@ router.post('/', passport.authenticate('jwt', {
     if (req.body.instagram) profileFields.social.instagram = req.body.instagram;
 
     Profile.findOne({
-            user: req.user.id
-        })
+        user: req.user.id
+    })
         .then(profile => {
             if (profile) {
                 // Update
                 Profile.findOneAndUpdate({
-                        user: req.user.id
-                    }, {
+                    user: req.user.id
+                }, {
                         $set: profileFields
                     }, {
                         new: true
@@ -167,8 +167,8 @@ router.post('/', passport.authenticate('jwt', {
                 // Create
                 // Check if handle exists
                 Profile.findOne({
-                        handle: profileFields.handle
-                    })
+                    handle: profileFields.handle
+                })
                     .then(profile => {
                         if (profile) {
                             errors.handle = 'That handle already exists';
@@ -201,8 +201,8 @@ router.post('/experience', passport.authenticate('jwt', {
     }
 
     Profile.findOne({
-            user: req.user.id
-        })
+        user: req.user.id
+    })
         .then(profile => {
             const newExp = {
                 title: req.body.title,
@@ -270,8 +270,8 @@ router.delete(
     }),
     (req, res) => {
         Profile.findOne({
-                user: req.user.id
-            })
+            user: req.user.id
+        })
             .then(profile => {
                 // Get remove index
                 const removeIndex = profile.experience
@@ -298,8 +298,8 @@ router.delete(
     }),
     (req, res) => {
         Profile.findOne({
-                user: req.user.id
-            })
+            user: req.user.id
+        })
             .then(profile => {
                 // Get remove index
                 const removeIndex = profile.education

@@ -5,14 +5,19 @@ import { connect } from 'react-redux';
 import { getCurrentProfile, deleteAccount } from '../../actions/profileActions';
 import Spinner from '../common/Spinner';
 import ProfileActions from './ProfileActions';
+import Experience from './Experience';
+import Education from './Education';
 
 class Dashboard extends Component {
+
   componentDidMount() {
     this.props.getCurrentProfile();
   }
+
   onDeleteClick(e) {
     this.props.deleteAccount();
   }
+
   render() {
     const { user } = this.props.auth;
     const { profile, loading } = this.props.profile;
@@ -27,7 +32,12 @@ class Dashboard extends Component {
           <div>
             <p className="lead text-muted">Welcome <Link to={`/profile/${profile.handle}`}>{user.name}</Link></p>
             <ProfileActions />
-            { /* TODO EXP AND EDU*/}
+            <Experience
+              experience={profile.experience}
+            ></Experience>
+            <Education
+              education={profile.education}
+            ></Education>
             <div style={{ marginBottom: '60px' }}></div>
             <button onClick={this.onDeleteClick.bind(this)} className="btn btn-danger">Delete My Account</button>
           </div>

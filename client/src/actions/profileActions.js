@@ -89,38 +89,72 @@ export const addEducation = (eduData, history) => dispatch => {
 
 // Delete Experience
 export const deleteExperience = id => dispatch => {
-  axios
-    .delete(`/api/profile/experience/${id}`)
-    .then(res =>
-      dispatch({
-        type: GET_PROFILE,
-        payload: res.data
-      })
-    )
-    .catch(err =>
-      dispatch({
-        type: GET_ERRORS,
-        payload: err.response.data
-      })
-    );
+  swal({
+    title: "Are you sure?",
+    text: "Your experience will be deleted!",
+    icon: "info",
+    buttons: ["No", "Yes"],
+    dangerMode: true,
+  })
+    .then((willDelete) => {
+      if (willDelete) {
+        swal("Your experience has been deleted!", {
+          icon: "success",
+        });
+        // Delete exp
+        axios
+          .delete(`/api/profile/experience/${id}`)
+          .then(res =>
+            dispatch({
+              type: GET_PROFILE,
+              payload: res.data
+            })
+          )
+          .catch(err =>
+            dispatch({
+              type: GET_ERRORS,
+              payload: err.response.data
+            })
+          );
+      } else {
+        swal("Nothing changed!");
+      }
+    })
 };
 
 // Delete Education
 export const deleteEducation = id => dispatch => {
-  axios
-    .delete(`/api/profile/education/${id}`)
-    .then(res =>
-      dispatch({
-        type: GET_PROFILE,
-        payload: res.data
-      })
-    )
-    .catch(err =>
-      dispatch({
-        type: GET_ERRORS,
-        payload: err.response.data
-      })
-    );
+  swal({
+    title: "Are you sure?",
+    text: "Your education will be deleted!",
+    icon: "info",
+    buttons: ["No", "Yes"],
+    dangerMode: true,
+  })
+    .then((willDelete) => {
+      if (willDelete) {
+        swal("Your education has been deleted!", {
+          icon: "success",
+        });
+        // Delete edu
+        axios
+          .delete(`/api/profile/education/${id}`)
+          .then(res =>
+            dispatch({
+              type: GET_PROFILE,
+              payload: res.data
+            })
+          )
+          .catch(err =>
+            dispatch({
+              type: GET_ERRORS,
+              payload: err.response.data
+            })
+          );
+      } else {
+        swal("Nothing changed!");
+      }
+    })
 };
 
 // Get all profiles
@@ -170,8 +204,7 @@ export const deleteAccount = () => dispatch => {
               type: GET_ERRORS,
               payload: err.response.data
             })
-          );
-        console.log("Farewell my friend ...Your account has been deleted");
+          )
       } else {
         swal("Your account is safe!");
       }
