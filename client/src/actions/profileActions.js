@@ -116,8 +116,6 @@ export const deleteExperience = id => dispatch => {
               payload: err.response.data
             })
           );
-      } else {
-        swal("Nothing changed!");
       }
     })
 };
@@ -151,8 +149,6 @@ export const deleteEducation = id => dispatch => {
               payload: err.response.data
             })
           );
-      } else {
-        swal("Nothing changed!");
       }
     })
 };

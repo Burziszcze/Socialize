@@ -18,9 +18,17 @@ class Navbar extends Component {
     const authLinks = (
       <ul className="navbar-nav ml-auto">
         <li className="nav-item">
+          <Link className="nav-link" to="/feed">
+            Post Feed
+        </Link>
+        </li>
+        <li className="nav-item">
           <Link className="nav-link" to="/dashboard">
             Dashboard
         </Link>
+        </li>
+        <li className="nav-item">
+          <a href="" className="nav-link text-info">Welcome {user.name}</a>
         </li>
         <li className="nav-item">
           <a
@@ -54,33 +62,35 @@ class Navbar extends Component {
       </ul>
     );
     return (
-      <nav className="navbar navbar-expand-sm navbar-dark bg-dark mb-4">
-        <div className="container">
-          <Link className="navbar-brand" to="/">
-            Socialize
+      <header>
+        <nav className="navbar navbar-expand-sm navbar-dark bg-dark mb-4">
+          <div className="container">
+            <Link className="navbar-brand" to="/">
+              Socialize
           </Link>
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-toggle="collapse"
-            data-target="#mobile-nav"
-          >
-            <span className="navbar-toggler-icon" />
-          </button>
+            <button
+              className="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target="#mobile-nav"
+            >
+              <span className="navbar-toggler-icon" />
+            </button>
 
-          <div className="collapse navbar-collapse" id="mobile-nav">
-            <ul className="navbar-nav mr-auto nav-pills">
-              <li className="nav-item">
-                <Link className="nav-link btn-secondary" to="/profiles">
-                  {" "}
-                  Coworkers
+            <div className="collapse navbar-collapse" id="mobile-nav">
+              <ul className="navbar-nav mr-auto nav-pills">
+                <li className="nav-item">
+                  <Link className="nav-link btn-secondary" to="/profiles">
+                    {" "}
+                    Coworkers
                 </Link>
-              </li>
-            </ul>
-            {isAuthenticated ? authLinks : guestLinks}
+                </li>
+              </ul>
+              {isAuthenticated ? authLinks : guestLinks}
+            </div>
           </div>
-        </div>
-      </nav>
+        </nav>
+      </header>
     );
   }
 }

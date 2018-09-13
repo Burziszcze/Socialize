@@ -37,12 +37,15 @@ class Profiles extends Component {
               <Link to="/dashboard" className="btn btn-light">
                 Go Back
               </Link>
-              <h1 className="display-4 text-center">Profiles</h1>
-              <p className="lead text-center">
+            </div>
+            <div className="col-md-12 text-center">
+              <i className="fas fa-users"></i>
+              <h1 className="display-4">Profiles</h1>
+              <p className="lead">
                 Browse and connect with your coworkers
             </p>
-              {profileItems}
             </div>
+            {profileItems}
           </div>
         </div>
       </div>

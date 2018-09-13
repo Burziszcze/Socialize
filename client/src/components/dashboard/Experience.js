@@ -23,7 +23,7 @@ class Experience extends Component {
               <Moment format="DD/MM/YYYY">{exp.to}</Moment>
             )}
         </td>
-        <td><button onClick={this.onDeleteClick.bind(this, exp._id)} className="btn btn-danger float-right">Delete</button></td>
+        <td><button onClick={this.onDeleteClick.bind(this, exp._id)} className="btn btn-warning float-right">Delete</button></td>
       </tr>
     ))
     return (
@@ -45,7 +45,7 @@ class Experience extends Component {
   }
 }
 
-Experience.PropTypes = {
+Experience.propTypes = {
   deleteExperience: PropTypes.func.isRequired
 }
 

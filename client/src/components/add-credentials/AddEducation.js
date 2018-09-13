@@ -5,8 +5,6 @@ import TextAreaFieldGroup from '../common/TextAreaFieldGroup';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { addEducation } from '../../actions/profileActions';
-import DatePicker from 'react-datepicker';
-import moment from 'moment';
 
 // imprt datepicker css
 import 'react-datepicker/dist/react-datepicker.css';
@@ -23,12 +21,9 @@ class AddEducation extends Component {
       current: false,
       description: '',
       errors: {},
-      startDate: moment(),
       disabled: false
     };
 
-    // this.handleFromDate = this.handleFromDate.bind(this);
-    // this.handleToDate = this.handleToDate.bind(this);
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
     this.onCheck = this.onCheck.bind(this);
@@ -38,17 +33,6 @@ class AddEducation extends Component {
     if (nextProps.errors) {
       this.setState({ errors: nextProps.errors });
     }
-  }
-
-  handleFromDate(date) {
-    this.setState({
-      from: date
-    });
-  }
-  handleToDate(date) {
-    this.setState({
-      to: date
-    });
   }
 
   onSubmit(e) {
@@ -124,11 +108,6 @@ class AddEducation extends Component {
                   onChange={this.onChange}
                   error={errors.from}
                 />
-                {/* <DatePicker
-                  selected={this.state.startDate}
-                  onChange={this.fom}
-                  error={errors.from}
-                /> */}
                 <h6>To Date</h6>
                 <TextFieldGroup
                   name="to"
@@ -138,12 +117,6 @@ class AddEducation extends Component {
                   error={errors.to}
                   disabled={this.state.disabled ? 'disabled' : ''}
                 />
-                {/* <DatePicker
-                  selected={this.state.startDate}
-                  onChange={this.to}
-                  error={errors.to}
-                  disabled={this.state.disabled}
-                /> */}
                 <div className="form-check mb-4">
                   <input
                     type="checkbox"

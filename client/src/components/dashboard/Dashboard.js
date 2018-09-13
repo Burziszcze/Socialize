@@ -39,7 +39,13 @@ class Dashboard extends Component {
               education={profile.education}
             ></Education>
             <div style={{ marginBottom: '60px' }}></div>
-            <button onClick={this.onDeleteClick.bind(this)} className="btn btn-danger">Delete My Account</button>
+            <div className="card w-50 text-center">
+              <div className="card-body">
+                <h5 className="card-title">Delete Your Account</h5>
+                <p className="card-text">This operation can NOT be undone, your account will be permanently deleted!</p>
+                <button onClick={this.onDeleteClick.bind(this)} className="btn btn-danger">Delete My Account</button>
+              </div>
+            </div>
           </div>
         )
       } else {
@@ -71,7 +77,7 @@ class Dashboard extends Component {
   }
 }
 
-Dashboard.PropTypes = {
+Dashboard.propTypes = {
   getCurrentProfile: PropTypes.func.isRequired,
   deleteAccount: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,

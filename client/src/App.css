@@ -49,3 +49,11 @@ img {
   color: white;
   decoration: none;
 }
+.fa-exclamation-triangle {
+  font-size: 10em;
+}
+.fa-users {
+  font-size: 10em;
+  color: teal;
+}
+  
