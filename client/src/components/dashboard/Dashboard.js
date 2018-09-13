@@ -29,7 +29,8 @@ class Dashboard extends Component {
       // Check if logged in user has profile data
       if (Object.keys(profile).length > 0) {
         dashboardContent = (
-          <div>
+          <div className="dashboardContent">
+            <h1 className="display-4">Dashboard</h1>
             <p className="lead text-muted">Welcome <Link to={`/profile/${profile.handle}`}>{user.name}</Link></p>
             <ProfileActions />
             <Experience
@@ -39,13 +40,14 @@ class Dashboard extends Component {
               education={profile.education}
             ></Education>
             <div style={{ marginBottom: '60px' }}></div>
-            <div className="card w-50 text-center">
+            <div className="card text-center">
               <div className="card-body">
                 <h5 className="card-title">Delete Your Account</h5>
                 <p className="card-text">This operation can NOT be undone, your account will be permanently deleted!</p>
                 <button onClick={this.onDeleteClick.bind(this)} className="btn btn-danger">Delete My Account</button>
               </div>
             </div>
+            <br />
           </div>
         )
       } else {
@@ -67,7 +69,6 @@ class Dashboard extends Component {
         <div className="container">
           <div className="row">
             <div className="col-md-12">
-              <h1 className="display-4">Dashboard</h1>
               {dashboardContent}
             </div>
           </div>

@@ -4,8 +4,10 @@ import { connect } from 'react-redux';
 import classnames from 'classnames';
 import { Link } from 'react-router-dom';
 import { deletePost, addLike, removeLike } from '../../actions/postActions';
+import Moment from 'react-moment';
 
 class PostItem extends Component {
+
   onDeleteClick(id) {
     this.props.deletePost(id);
   }
@@ -31,56 +33,60 @@ class PostItem extends Component {
     const { post, auth, showActions } = this.props;
 
     return (
-      <div className="card card-body mb-3">
-        <div className="row">
-          <div className="col-md-2">
-            <a href="profile.html">
+      <div className="postItem card mb-3">
+        <div className="card-header">
+          <a href={`/profile/${post.profile}`} className="text-center">{post.name} </a>
+          <small>
+            <Moment fromNow>{post.date}</Moment>
+          </small>
+        </div>
+        <div className="card-body">
+          <div className="row">
+            <div className="col-md-2">
               <img
-                className="rounded-circle d-none d-md-block"
+                className="rounded-circle avatar float-center"
                 src={post.avatar}
                 alt=""
               />
-            </a>
-            <br />
-            <p className="text-center">{post.name}</p>
-          </div>
-          <div className="col-md-10">
-            <p className="lead">{post.text}</p>
-            {showActions ? (
-              <span>
-                <button
-                  onClick={this.onLikeClick.bind(this, post._id)}
-                  type="button"
-                  className="btn btn-light mr-1"
-                >
-                  <i
-                    className={classnames('fas fa-thumbs-up', {
-                      'text-success': this.findUserLike(post.likes)
-                    })}
-                  />
-                  <span className="badge badge-light">{post.likes.length}</span>
-                </button>
-                <button
-                  onClick={this.onUnlikeClick.bind(this, post._id)}
-                  type="button"
-                  className="btn btn-light mr-1"
-                >
-                  <i className="text-secondary fas fa-thumbs-down" />
-                </button>
-                <Link to={`/post/${post._id}`} className="btn btn-info mr-1">
-                  Comments
-                </Link>
-                {post.user === auth.user.id ? (
+            </div>
+            <div className="col-md-10">
+              <p className="lead">{post.text}</p>
+              {showActions ? (
+                <span>
                   <button
-                    onClick={this.onDeleteClick.bind(this, post._id)}
+                    onClick={this.onLikeClick.bind(this, post._id)}
                     type="button"
-                    className="btn btn-danger mr-1"
+                    className="btn btn-light mr-1"
                   >
-                    <i className="fas fa-times" />
+                    <i
+                      className={classnames('fas fa-thumbs-up', {
+                        'text-success': this.findUserLike(post.likes)
+                      })}
+                    />
+                    <span className="badge badge-light">{post.likes.length}</span>
                   </button>
-                ) : null}
-              </span>
-            ) : null}
+                  <button
+                    onClick={this.onUnlikeClick.bind(this, post._id)}
+                    type="button"
+                    className="btn btn-light mr-1"
+                  >
+                    <i className="text-secondary fas fa-thumbs-down" />
+                  </button>
+                  <Link to={`/post/${post._id}`} className="btn btn-info mr-1">
+                    Reply
+                </Link>
+                  {post.user === auth.user.id ? (
+                    <button
+                      onClick={this.onDeleteClick.bind(this, post._id)}
+                      type="button"
+                      className="btn btn-danger mr-1"
+                    >
+                      <i className="fas fa-times" />
+                    </button>
+                  ) : null}
+                </span>
+              ) : null}
+            </div>
           </div>
         </div>
       </div>

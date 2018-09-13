@@ -55,8 +55,9 @@ class Login extends Component {
               <p className="lead text-center">
                 Sign in to your Socialize account
               </p>
-              <form onSubmit={this.onSubmit}>
+              <form className="form-signin" onSubmit={this.onSubmit}>
                 <TextFieldGroup
+                  className="form-signin"
                   placeholder="Email Address"
                   name="email"
                   type="email"
@@ -65,6 +66,7 @@ class Login extends Component {
                   error={errors.email}
                 />
                 <TextFieldGroup
+                  className="form-signin"
                   placeholder="Password"
                   name="password"
                   type="password"
