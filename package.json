@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "small social network",
   "main": "server.js",
+  "homepage": "https://burziszcze.github.io/Socialize/",
   "scripts": {
     "client-install": "npm install --prefix client",
     "start": "node server.js",
