@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import TextAreaFieldGroup from '../common/TextAreaFieldGroup';
 import { addPost } from '../../actions/postActions';
+import Spinner from '../common/Spinner';
 
 class PostForm extends Component {
   constructor(props) {
@@ -15,7 +16,6 @@ class PostForm extends Component {
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
   }
-
   componentWillReceiveProps(newProps) {
     if (newProps.errors) {
       this.setState({ errors: newProps.errors });
@@ -24,7 +24,6 @@ class PostForm extends Component {
 
   onSubmit(e) {
     e.preventDefault();
-
     const { user } = this.props.auth;
 
     const newPost = {
@@ -32,13 +31,15 @@ class PostForm extends Component {
       name: user.name,
       avatar: user.avatar
     };
-
     this.props.addPost(newPost);
-    this.setState({ text: '' });
+    this.setState({
+      text: ''
+    });
   }
-
   onChange(e) {
-    this.setState({ [e.target.name]: e.target.value });
+    this.setState({
+      [e.target.name]: e.target.value
+    });
   }
 
   render() {
