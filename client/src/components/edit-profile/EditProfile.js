@@ -265,7 +265,6 @@ class CreateProfile extends Component {
                   error={errors.bio}
                   info="Tell us a little about yourself"
                 />
-
                 <div className="mb-3">
                   <button
                     type="button"
