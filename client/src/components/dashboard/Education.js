@@ -28,18 +28,20 @@ class Education extends Component {
       </tr>
     ));
     return (
-      <div>
+      <div className="table-responsive">
         <h4 className="mb-4">Education Credentials</h4>
-        <table className="table">
-          <thead>
+        <table className="table table-striped">
+          <thead className="thead-dark">
             <tr>
               <th>School</th>
               <th>Degree</th>
               <th>Years</th>
-              <th />
+              <th></th>
             </tr>
-            {education}
           </thead>
+          <tbody>
+            {education}
+          </tbody>
         </table>
       </div>
     );
