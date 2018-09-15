@@ -30,7 +30,7 @@ class Education extends Component {
     return (
       <div className="table-responsive">
         <h4 className="mb-4">Education Credentials</h4>
-        <table className="table table-striped">
+        <table className="table table-hover">
           <thead className="thead-dark">
             <tr>
               <th>School</th>
