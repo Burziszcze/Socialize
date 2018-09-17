@@ -10,7 +10,7 @@ body {
 body > .container {
   padding: 60px 15px 0;
 }
-nav {
+.navbar {
   background-color: #212121;
 }
 .footer > .container {
