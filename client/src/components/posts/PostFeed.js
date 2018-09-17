@@ -8,7 +8,7 @@ class PostFeed extends Component {
     this.state = {
       currentPage: 1,
       postsPerPage: 4,
-      totalPages: 10
+      totalPages: this.props.posts.length / 4
     };
     // this.handleClick = this.handleClick.bind(this); // no mather if i use arrow functions
   }
@@ -34,6 +34,7 @@ class PostFeed extends Component {
   render() {
     const { currentPage, postsPerPage } = this.state;
     const { posts } = this.props;
+
     // Logic for displaying todos
     const indexOfLastPost = currentPage * postsPerPage;
     const indexOfFirstPost = indexOfLastPost - postsPerPage;
