@@ -48,7 +48,7 @@ class PostItem extends Component {
               <img
                 className="rounded-circle avatar float-center"
                 src={post.avatar}
-                alt=""
+                alt={post.name}
               />
             </div>
             <div className="col-md-10">
@@ -61,7 +61,7 @@ class PostItem extends Component {
                     className="btn btn-light mr-1"
                   >
                     <i
-                      className={classnames('fas fa-thumbs-up', {
+                      className={classnames('fas fa-thumbs-up ', {
                         'text-success': this.findUserLike(post.likes)
                       })}
                     />
@@ -74,16 +74,15 @@ class PostItem extends Component {
                   >
                     <i className="text-secondary fas fa-thumbs-down" />
                   </button>
-                  <Link to={`/post/${post._id}`} className="btn btn-info mr-1">
-                    Reply
-                </Link>
+                  <Link to={`/post/${post._id}`} className="btn btn-primary mr-1">Reply &nbsp;
+                    <span className="badge badge-light">{post.comments.length}</span>
+                  </Link>
                   {post.user === auth.user.id ? (
                     <button
                       onClick={this.onDeleteClick.bind(this, post._id)}
                       type="button"
                       className="btn btn-danger mr-1"
-                    >
-                      <i className="fas fa-times" />
+                    >delete post
                     </button>
                   ) : null}
                 </span>
