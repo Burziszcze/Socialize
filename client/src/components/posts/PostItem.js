@@ -53,6 +53,7 @@ class PostItem extends Component {
             </div>
             <div className="col-md-10">
               <p className="lead">{post.text}</p>
+              <hr />
               {showActions ? (
                 <span>
                   <button

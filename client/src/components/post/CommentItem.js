@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { deleteComment } from '../../actions/postActions';
 import { Link } from 'react-router-dom';
+import Moment from 'react-moment';
 
 class CommentItem extends Component {
   onDeleteClick(postId, commentId) {
@@ -11,35 +12,34 @@ class CommentItem extends Component {
 
   render() {
     const { comment, postId, auth } = this.props;
-    const { profile } = this.props;
 
     return (
-      <div class="card">
+      <div class="card mb-3">
         <div class="card-header">
-          Reply to: {postId}
+          <b><a
+            href={`/profile/${comment.name}`}
+            className="text-center">{comment.name} </a></b>
+          <small><Moment fromNow>{comment.date}</Moment></small>
         </div>
         <div class="card-body mb-3">
           <div className="row">
             <div className="col-sm-2">
-              {/* <Link to={`/profile/${profile.handle}`} className="btn btn-info">
-              </Link> */}
               <img
                 className="rounded-circle d-none d-md-block"
                 src={comment.avatar}
                 alt=""
               />
               <br />
-              <p className="card-title text-center">{comment.name}</p>
             </div>
             <div className="col-md-10">
               <p className="card-text lead">{comment.text}</p>
+              <hr />
               {comment.user === auth.user.id ? (
                 <button
                   onClick={this.onDeleteClick.bind(this, postId, comment._id)}
                   type="button"
                   className="btn btn-danger mr-1"
-                >
-                  <i className="fas fa-trash" />
+                >delete comment
                 </button>
               ) : null}
             </div>
