@@ -65,8 +65,8 @@ class PostFeed extends Component {
     return (
       <div className="commentBox">
         {renderPosts}
-        <nav className="bg-light">
-          <ul className="pagination">
+        <nav className="page-nagigation">
+          <ul className="pagination justify-content-center">
             <li className="page-item"><a className="page-link" onClick={this.prevPage}>Previous</a></li>
             {renderPageNumbers}
             <li className="page-item"><a className="page-link" onClick={this.nextPage}>Next</a></li>
