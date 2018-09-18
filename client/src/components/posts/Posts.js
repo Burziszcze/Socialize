@@ -5,7 +5,7 @@ import PostForm from './PostForm';
 import PostFeed from './PostFeed';
 import Spinner from '../common/Spinner';
 import { getPosts } from '../../actions/postActions';
-import PaginatedList from './PaginatedList';
+// import PaginatedList from './PaginatedList';
 
 class Posts extends Component {
   componentDidMount() {

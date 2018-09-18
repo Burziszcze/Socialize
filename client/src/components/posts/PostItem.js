@@ -35,7 +35,9 @@ class PostItem extends Component {
     return (
       <div className="postItem card mb-3">
         <div className="card-header">
-          <a href={`/profile/${post.profile}`} className="text-center">{post.name} </a>
+          <b><a
+            href={`/profile/${post.name}`}
+            className="text-center">{post.name} </a></b>
           <small>
             <Moment fromNow>{post.date}</Moment>
           </small>
@@ -103,13 +105,11 @@ PostItem.propTypes = {
   addLike: PropTypes.func.isRequired,
   removeLike: PropTypes.func.isRequired,
   post: PropTypes.object.isRequired,
-  auth: PropTypes.object.isRequired
+  auth: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = state => ({
-  auth: state.auth
+  auth: state.auth,
 });
 
-export default connect(mapStateToProps, { deletePost, addLike, removeLike })(
-  PostItem
-);
+export default connect(mapStateToProps, { deletePost, addLike, removeLike })(PostItem);
