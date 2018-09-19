@@ -31,7 +31,8 @@ class Dashboard extends Component {
         dashboardContent = (
           <div className="dashboardContent">
             <h1 className="display-4">Dashboard</h1>
-            <p className="lead text-muted">Welcome <Link to={`/profile/${profile.handle}`}>{user.name}</Link></p>
+            <p className="lead text-muted">Welcome <Link to={`/profile/${profile.handle}`}>{user.name}</Link>
+            </p>
             <ProfileActions />
             <Experience
               experience={profile.experience}
@@ -47,7 +48,6 @@ class Dashboard extends Component {
                 <button onClick={this.onDeleteClick.bind(this)} className="btn btn-danger">Delete My Account</button>
               </div>
             </div>
-            <br />
           </div>
         )
       } else {

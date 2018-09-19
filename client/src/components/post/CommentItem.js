@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { deleteComment } from '../../actions/postActions';
-import { Link } from 'react-router-dom';
 import Moment from 'react-moment';
 
 class CommentItem extends Component {
