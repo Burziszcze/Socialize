@@ -11,11 +11,6 @@ const PostSchema = new Schema({
         type: String,
         required: true
     },
-    handle: {
-        type: String,
-        required: true,
-        ref: 'handle'
-    },
     name: {
         type: String
     },

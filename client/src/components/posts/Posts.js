@@ -5,7 +5,6 @@ import PostForm from './PostForm';
 import PostFeed from './PostFeed';
 import Spinner from '../common/Spinner';
 import { getPosts } from '../../actions/postActions';
-import { Link } from 'react-router-dom';
 
 class Posts extends Component {
   componentDidMount() {
